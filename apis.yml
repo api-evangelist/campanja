@@ -1,7 +1,26 @@
 aid: campanja
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/campanja.png
 name: Campanja
-description: Campanja is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Campanja was a Stockholm-based advertising-technology company founded in 2010 that
+  built a high-frequency paid-search bid-optimization engine. Its platform placed millions of
+  automated bids per day across Google AdWords, Google Shopping, and Yahoo/Bing search campaigns,
+  using real-time tracking and predictive big-data modeling to improve return on ad spend for large
+  online advertisers while cutting media cost. Campanja raised a $5M Series A (Hoxton Ventures, DFJ
+  Esprit) and was acquired by [24]7.ai in 2015, where its technology was folded into the [24]7
+  Customer Acquisition Cloud. The independent company is effectively defunct and campanja.com no
+  longer resolves to a live site. This profile was surfaced as a 500 Global portfolio lead and
+  processed by the API Evangelist enrichment pipeline.
 url: https://raw.githubusercontent.com/api-evangelist/campanja/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,11 +28,25 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status: defunct
+x-status-detail: Acquired by [24]7.ai in 2015 and absorbed; campanja.com has no live A record (DNS
+  probe 2026-07-18). No developer portal, API, documentation, SDKs, or other API surface exists to
+  enrich.
+x-acquired-by: 247-ai
+x-acquired-year: 2015
+x-founded-year: 2010
+x-headquarters: Stockholm, Sweden
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Advertising
+- AdTech
+- Search Advertising
+- Bid Management
+- Marketing Technology
+- PPC
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +56,8 @@ maintainers:
 common:
 - type: Website
   url: https://campanja.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
