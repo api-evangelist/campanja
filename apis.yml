@@ -29,16 +29,23 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 x-status: defunct
-x-status-detail: Acquired by [24]7.ai in 2015 and absorbed; campanja.com has no live A record (DNS
-  probe 2026-07-18). No developer portal, API, documentation, SDKs, or other API surface exists to
-  enrich.
+x-status-detail: Acquired by [24]7.ai on 2015-08-24 and absorbed into the [24]7 Customer Acquisition
+  Cloud as its Advanced Bid Optimization component; the independent product was retired. campanja.com
+  is a registered but web-dead domain — re-probed 2026-08-12, it still publishes NS (AWS Route 53),
+  MX (Google Workspace) and SPF/site-verification TXT records but has NO A or AAAA record, so every
+  HTTPS request fails at DNS resolution. The only resolving subdomain is docs.campanja.com, a
+  dangling legacy Google-hosted CNAME (ghs.google.com) that returns Google's own 404 on every path.
+  api.campanja.com and developer.campanja.com do not resolve. No developer portal, API,
+  documentation, SDK, package, or agent surface exists to enrich, and none is recoverable from the
+  Wayback archive of the site.
 x-acquired-by: 247-ai
 x-acquired-year: 2015
+x-acquired-date: '2015-08-24'
 x-founded-year: 2010
 x-headquarters: Stockholm, Sweden
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-12'
 tags:
 - Company
 - Advertising
@@ -54,10 +61,44 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/campanja-domain-security.yml
 - type: Website
   url: https://campanja.com
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 2
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Full contract-discovery pass run (STEP 0b) against campanja.com, www., api., developer. and
+    docs.campanja.com plus the Wayback archive and every public package registry. Nothing was found
+    because the company is absorbed and the domain is web-dead. The two artifacts written are
+    probed absences, not provider-published surfaces: a domain-security profile (the domain still
+    carries mail records) and a well-known probe index recording that no discovery document is
+    served. No WellKnown, AgentCard, LLMsTxt or Packages pointer was emitted, because the provider
+    serves none of those.
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Campanja was acquired by [24]7.ai in August 2015 and fully absorbed; campanja.com is now a
+    mail-only registered domain with no A or AAAA record, so it does not resolve over HTTPS at all,
+    and its one surviving subdomain (docs.campanja.com) is a dangling Google CNAME that 404s on
+    every path.
+  evidence:
+  - url: https://campanja.com/
+    status: 0
+    note: 'curl (6) Could not resolve host: campanja.com — no A/AAAA record'
+  - url: https://campanja.com/.well-known/security.txt
+    status: 0
+    note: DNS resolution failure, no request sent
+  - url: http://docs.campanja.com/
+    status: 404
+    note: dangling legacy CNAME to ghs.google.com; Google 404 page on every path
+  - url: http://docs.campanja.com/openapi.json
+    status: 404
+  - url: https://registry.npmjs.org/-/v1/search?text=campanja
+    status: 200
+    note: 0 results — no first-party packages on npm, PyPI, RubyGems, crates.io or Packagist
+  checked: '2026-08-12'

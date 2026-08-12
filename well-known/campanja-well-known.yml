@@ -1,0 +1,91 @@
+generated: '2026-08-12'
+method: probed
+source: live HTTPS probes of every host named in apis.yml
+name: Campanja well-known probe
+description: >-
+  Probe of the standard /.well-known/ discovery paths plus /llms.txt and /openapi.json
+  against every host this profile names. campanja.com is a registered but web-dead
+  domain: it publishes NS, MX (Google Workspace) and TXT (SPF, google-site-verification)
+  records but has NO A or AAAA record, so every HTTPS request fails at DNS resolution
+  before a request is ever sent. No document was served on any path. Recorded as an
+  honest absence — no WellKnown or SecurityTxt pointer is emitted, because the provider
+  serves no such surface.
+hosts:
+- host: campanja.com
+  resolves: false
+  dns:
+    a: []
+    aaaa: []
+    ns:
+    - ns-185.awsdns-23.com
+    - ns-952.awsdns-55.net
+    - ns-1119.awsdns-11.org
+    - ns-1895.awsdns-44.co.uk
+    mx:
+    - aspmx.l.google.com
+    txt:
+    - v=spf1 include:_spf.google.com include:jobvite.com ~all
+  transport_error: 'curl (6) Could not resolve host: campanja.com'
+  paths:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+  - path: /llms.txt
+    status: 0
+    file: null
+  - path: /openapi.json
+    status: 0
+    file: null
+- host: docs.campanja.com
+  resolves: true
+  dns:
+    cname: ghs.google.com
+    a:
+    - 142.250.217.147
+  note: >-
+    Dangling legacy Google-hosted (Google Sites / Google Apps) CNAME left over from the
+    independent company. HTTPS fails (no certificate for this name); plain HTTP returns
+    Google's own 404 page for every path, including /. There is no site behind it.
+  paths:
+  - path: /
+    status: 404
+    file: null
+  - path: /openapi.json
+    status: 404
+    file: null
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /llms.txt
+    status: 404
+    file: null
+summary:
+  hosts_probed: 2
+  paths_probed: 14
+  documents_found: 0
+  pointer_emitted: false
+  pointer_reason: >-
+    No path returned a 200 carrying a real document, so no WellKnown or SecurityTxt
+    common[] pointer is emitted.
+checked: '2026-08-12'
