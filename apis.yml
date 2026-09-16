@@ -23,15 +23,14 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/campanja.png
 name: Campanja
-description: Campanja was a Stockholm-based advertising-technology company founded in 2010 that
-  built a high-frequency paid-search bid-optimization engine. Its platform placed millions of
-  automated bids per day across Google AdWords, Google Shopping, and Yahoo/Bing search campaigns,
-  using real-time tracking and predictive big-data modeling to improve return on ad spend for large
-  online advertisers while cutting media cost. Campanja raised a $5M Series A (Hoxton Ventures, DFJ
-  Esprit) and was acquired by [24]7.ai in 2015, where its technology was folded into the [24]7
-  Customer Acquisition Cloud. The independent company is effectively defunct and campanja.com no
-  longer resolves to a live site. This profile was surfaced as a 500 Global portfolio lead and
-  processed by the API Evangelist enrichment pipeline.
+description: Campanja was a Stockholm-based advertising-technology company founded in 2010 that built
+  a high-frequency paid-search bid-optimization engine. Its platform placed millions of automated bids
+  per day across Google AdWords, Google Shopping, and Yahoo/Bing search campaigns, using real-time tracking
+  and predictive big-data modeling to improve return on ad spend for large online advertisers while cutting
+  media cost. Campanja raised a $5M Series A (Hoxton Ventures, DFJ Esprit) and was acquired by [24]7.ai
+  in 2015, where its technology was folded into the [24]7 Customer Acquisition Cloud. The independent
+  company is effectively defunct and campanja.com no longer resolves to a live site. This profile was
+  surfaced as a 500 Global portfolio lead and processed by the API Evangelist enrichment pipeline.
 url: https://raw.githubusercontent.com/api-evangelist/campanja/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -40,15 +39,14 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 x-status: defunct
-x-status-detail: Acquired by [24]7.ai on 2015-08-24 and absorbed into the [24]7 Customer Acquisition
-  Cloud as its Advanced Bid Optimization component; the independent product was retired. campanja.com
-  is a registered but web-dead domain — re-probed 2026-08-12, it still publishes NS (AWS Route 53),
-  MX (Google Workspace) and SPF/site-verification TXT records but has NO A or AAAA record, so every
-  HTTPS request fails at DNS resolution. The only resolving subdomain is docs.campanja.com, a
-  dangling legacy Google-hosted CNAME (ghs.google.com) that returns Google's own 404 on every path.
-  api.campanja.com and developer.campanja.com do not resolve. No developer portal, API,
-  documentation, SDK, package, or agent surface exists to enrich, and none is recoverable from the
-  Wayback archive of the site.
+x-status-detail: Acquired by [24]7.ai on 2015-08-24 and absorbed into the [24]7 Customer Acquisition Cloud
+  as its Advanced Bid Optimization component; the independent product was retired. campanja.com is a registered
+  but web-dead domain — re-probed 2026-08-12, it still publishes NS (AWS Route 53), MX (Google Workspace)
+  and SPF/site-verification TXT records but has NO A or AAAA record, so every HTTPS request fails at DNS
+  resolution. The only resolving subdomain is docs.campanja.com, a dangling legacy Google-hosted CNAME
+  (ghs.google.com) that returns Google's own 404 on every path. api.campanja.com and developer.campanja.com
+  do not resolve. No developer portal, API, documentation, SDK, package, or agent surface exists to enrich,
+  and none is recoverable from the Wayback archive of the site.
 x-acquired-by: 247-ai
 x-acquired-year: 2015
 x-acquired-date: '2015-08-24'
@@ -56,7 +54,7 @@ x-founded-year: 2010
 x-headquarters: Stockholm, Sweden
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-08-12'
+modified: '2026-09-15'
 tags:
 - Company
 - Advertising
@@ -66,6 +64,7 @@ tags:
 - Marketing Technology
 - PPC
 - Sweden
+- Defunct
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -82,22 +81,18 @@ x-enrichment:
   status: minimal
   artifacts_added: 2
   pass: local-v1
-  note: >-
-    Full contract-discovery pass run (STEP 0b) against campanja.com, www., api., developer. and
-    docs.campanja.com plus the Wayback archive and every public package registry. Nothing was found
-    because the company is absorbed and the domain is web-dead. The two artifacts written are
-    probed absences, not provider-published surfaces: a domain-security profile (the domain still
-    carries mail records) and a well-known probe index recording that no discovery document is
-    served. No WellKnown, AgentCard, LLMsTxt or Packages pointer was emitted, because the provider
-    serves none of those.
+  note: 'Full contract-discovery pass run (STEP 0b) against campanja.com, www., api., developer. and docs.campanja.com
+    plus the Wayback archive and every public package registry. Nothing was found because the company
+    is absorbed and the domain is web-dead. The two artifacts written are probed absences, not provider-published
+    surfaces: a domain-security profile (the domain still carries mail records) and a well-known probe
+    index recording that no discovery document is served. No WellKnown, AgentCard, LLMsTxt or Packages
+    pointer was emitted, because the provider serves none of those.'
 x-coverage:
   state: none
   reason: defunct
-  detail: >-
-    Campanja was acquired by [24]7.ai in August 2015 and fully absorbed; campanja.com is now a
-    mail-only registered domain with no A or AAAA record, so it does not resolve over HTTPS at all,
-    and its one surviving subdomain (docs.campanja.com) is a dangling Google CNAME that 404s on
-    every path.
+  detail: Campanja was acquired by [24]7.ai in August 2015 and fully absorbed; campanja.com is now a mail-only
+    registered domain with no A or AAAA record, so it does not resolve over HTTPS at all, and its one
+    surviving subdomain (docs.campanja.com) is a dangling Google CNAME that 404s on every path.
   evidence:
   - url: https://campanja.com/
     status: 0
