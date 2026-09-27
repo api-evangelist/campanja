@@ -109,3 +109,12 @@ x-coverage:
     status: 200
     note: 0 results — no first-party packages on npm, PyPI, RubyGems, crates.io or Packagist
   checked: '2026-08-12'
+x-lifecycle:
+  state: deprecated
+  reason: domain-does-not-resolve
+  observed: '2026-09-27'
+  detail: >-
+    The company's own domain returned no A or AAAA record when probed. This is an observation about the domain, not a request from the company.
+  indexed: true
+  successor: 247-ai
+  successor_in_catalog: true
